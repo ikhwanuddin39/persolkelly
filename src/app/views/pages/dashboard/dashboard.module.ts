@@ -25,6 +25,10 @@ const routes: Routes = [
         loadChildren: () => import('./manajemen-product/manajemen-product.module').then(m => m.ManajemenProductModule)
       },
       {
+        path: 'category',
+        loadChildren: () => import('./manajemen-category/manajemen-category.module').then(m => m.ManajemenCategoryModule)
+      },
+      {
         path: '',
         redirectTo: 'main',
         pathMatch: 'full'
