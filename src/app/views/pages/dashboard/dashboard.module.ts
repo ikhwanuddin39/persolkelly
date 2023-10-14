@@ -17,6 +17,10 @@ const routes: Routes = [
         loadChildren: () => import('./main-dashboard/main-dashboard.module').then(m => m.MainDashboardModule)
       },
       {
+        path: 'user',
+        loadChildren: () => import('./manajemen-user/manajemen-user.module').then(m => m.ManajemenUserModule)
+      },
+      {
         path: '',
         redirectTo: 'main',
         pathMatch: 'full'
