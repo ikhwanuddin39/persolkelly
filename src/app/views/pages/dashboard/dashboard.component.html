@@ -1,1 +1,20 @@
-<p>dashboard works!</p>
+<mat-drawer-container class="min-h-screen" autosize>
+   <mat-drawer #drawer opened mode="side">
+      <div class="min-h-screen bg-sky-500">
+
+         <p>Auto-resizing sidenav</p>
+      </div>
+      <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+     <button (click)="showFiller = !showFiller" mat-raised-button>
+       Toggle extra text
+     </button> -->
+   </mat-drawer>
+
+   <div class="example-sidenav-content">
+      <button type="button" mat-button (click)="drawer.toggle()">
+         close
+      </button>
+      <router-outlet></router-outlet>
+   </div>
+
+</mat-drawer-container>
