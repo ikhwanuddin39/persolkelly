@@ -1,1 +1,13 @@
-<p>topbar works!</p>
+<header class="bg-white w-full p-6 flex justify-between">
+   <div class="flex items-center">
+      <button mat-icon-button (click)="toggleSidenav()">
+         <mat-icon>menu</mat-icon>
+      </button>
+      <h2 class="font-bold text-2xl text-neutral-900">Dashboard</h2>
+   </div>
+   <span mat-button [matMenuTriggerFor]="menu" class="cursor-pointer font-medium">Admin</span>
+   <mat-menu #menu="matMenu">
+      <button mat-menu-item>Edit Profile</button>
+      <button mat-menu-item class="!text-red-500 hover:text-red-700">Logout</button>
+   </mat-menu>
+</header>

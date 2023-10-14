@@ -1,6 +1,6 @@
 <mat-drawer-container class="min-h-screen" autosize>
-   <mat-drawer #drawer opened mode="side">
-      <div class="min-h-screen bg-sky-500">
+   <mat-drawer #sidenav opened mode="side" class="!bg-sky-500">
+      <div>
 
          <p>Auto-resizing sidenav</p>
       </div>
@@ -11,12 +11,11 @@
    </mat-drawer>
 
    <main class="bg-sky-50 min-h-screen w-full flex flex-col">
-      <header class="bg-white w-full p-6 flex justify-end">Admin</header>
+      <app-topbar (toggleSidebar)="toggleSidenav()"></app-topbar>
       <section class="p-6">
          <router-outlet></router-outlet>
       </section>
-      <footer class="text-center text-xs text-neutral-500 py-2 ">test angular developer PT Swadharma Duta Data 2023
-      </footer>
+      <app-footer></app-footer>
    </main>
 
 </mat-drawer-container>
