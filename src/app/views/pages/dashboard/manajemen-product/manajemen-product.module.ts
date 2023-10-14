@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ManajemenProductComponent } from './manajemen-product.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ButtonAddComponent } from '../components/button/button-add/button-add.component';
+import { TableComponent } from '../components/table/table.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ButtonAddComponent
+    ButtonAddComponent,
+    TableComponent
   ]
 })
 export class ManajemenProductModule { }
