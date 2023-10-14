@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: () => import('./manajemen-user/manajemen-user.module').then(m => m.ManajemenUserModule)
       },
       {
+        path: 'product',
+        loadChildren: () => import('./manajemen-product/manajemen-product.module').then(m => m.ManajemenProductModule)
+      },
+      {
         path: '',
         redirectTo: 'main',
         pathMatch: 'full'
