@@ -41,7 +41,7 @@ const routes: Routes = [
   declarations: [
     DashboardComponent,
     TopbarComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     CommonModule,

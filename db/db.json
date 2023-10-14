@@ -1,16 +1,19 @@
 {
   "users": [
     {
+      "id": "01c2376c-8b15-49a9-8a0b-8a206e843183",
       "name": "John Doe",
       "address": "123 Main St",
       "email": "johndoe@gmail.com"
     },
     {
+      "id": "4b9e3f1b-199b-4540-b7ed-43e0765b8b14",
       "name": "Jane Doe",
       "address": "123 Main St",
       "email": "janedoe@gmail.com"
     },
     {
+      "id": "be99d95b-99b2-4ea0-aa8e-2979e3b7fb85",
       "name": "John Smith",
       "address": "123 Main St",
       "email": "johnsmith@gmail.com"
@@ -18,40 +21,52 @@
   ],
   "products": [
     {
+      "id": "d79485c3-06d5-44b1-8f09-c4b03e3876f3",
       "name": "Widget",
       "price": 10000,
-      "description": "A small widget"
+      "description": "A small widget",
+      "category_id": "93c8d0d7-8f1b-4613-a430-4755f703eeb6"
     },
     {
+      "id": "73920e76-dcdc-4d85-bc6a-4bfdf9eae1d4",
       "name": "Sling Bag",
       "price": 40000,
-      "description": "A small sling bag"
+      "description": "A small sling bag",
+      "category_id": "9c2a10fc-670b-43e6-87d5-7a407a3ab6f5"
     },
     {
+      "id": "42e601d7-01a1-4c2c-a6a5-e3c185f7f74a",
       "name": "T-Shirt",
       "price": 20000,
-      "description": "A small t-shirt"
+      "description": "A small t-shirt",
+      "category_id": "bf71ed75-9026-4509-b1d0-61ef59ac4b6b"
     },
     {
+      "id": "3bb8d477-632e-4c96-ba07-4c6783ff1e69",
       "name": "Shoes",
       "price": 50000,
-      "description": "A small shoes"
+      "description": "A small shoes",
+      "category_id": "db5c86d4-c3a7-4e10-9da4-ff3e3960c7f1"
     }
   ],
   "categories": [
     {
+      "id": "93c8d0d7-8f1b-4613-a430-4755f703eeb6",
       "name": "Widgets",
       "description": "All kinds of widgets"
     },
     {
+      "id": "9c2a10fc-670b-43e6-87d5-7a407a3ab6f5",
       "name": "Bags",
       "description": "All kinds of bags"
     },
     {
+      "id": "bf71ed75-9026-4509-b1d0-61ef59ac4b6b",
       "name": "Clothes",
       "description": "All kinds of clothes"
     },
     {
+      "id": "db5c86d4-c3a7-4e10-9da4-ff3e3960c7f1",
       "name": "Shoes",
       "description": "All kinds of shoes"
     }
