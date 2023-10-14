@@ -1,13 +1,23 @@
 <mat-drawer-container class="min-h-screen" autosize>
-   <mat-drawer #sidenav opened mode="side" class="!bg-sky-500">
+   <mat-drawer #sidenav opened mode="side" class="!bg-sky-800">
       <div>
-
-         <p>Auto-resizing sidenav</p>
+         <!-- <h1 class="font-semibold p-4 text-white text-xl">Dashboard Product</h1> -->
+         <div class="px-10 py-4">
+            <img src="assets/img/logo.png" class="invert w-40 mx-auto" alt="">
+         </div>
+         <ul>
+            <ng-container *ngFor="let m of menu">
+               <li>
+                  <a [routerLink]="m.link"
+                     class="!text-white hover:bg-sky-400 hover:text-white p-4 flex items-center gap-3"
+                     routerLinkActive="bg-sky-400 font-semibold">
+                     <mat-icon class="!text-white">{{ m.icon }}</mat-icon>
+                     <span class="!text-white">{{ m.title }}</span>
+                  </a>
+               </li>
+            </ng-container>
+         </ul>
       </div>
-      <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-     <button (click)="showFiller = !showFiller" mat-raised-button>
-       Toggle extra text
-     </button> -->
    </mat-drawer>
 
    <main class="bg-sky-50 min-h-screen w-full flex flex-col">

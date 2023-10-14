@@ -1,5 +1,6 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { menus } from './menus';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,15 +8,12 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+
   @ViewChild('sidenav') sidenav!: MatSidenav;
+  //list menu
+  menu = menus
 
-  // ngAfterViewInit() {
-  //   console.log(this.sidenav);
-
-  //   // Pastikan bahwa sidenav sudah tersedia sebelum mencoba mengaksesnya
-  //   this.toggleSidenav();
-  // }
-
+  //toggle sidenav
   toggleSidenav() {
     this.sidenav.toggle();
   }
