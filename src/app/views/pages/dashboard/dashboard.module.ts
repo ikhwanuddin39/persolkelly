@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { TopbarComponent } from './layout/topbar/topbar.component';
+import { FooterComponent } from './layout/footer/footer.component';
 const routes: Routes = [
   {
     path: '',
@@ -23,7 +25,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    TopbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

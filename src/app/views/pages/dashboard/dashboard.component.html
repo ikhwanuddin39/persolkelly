@@ -10,11 +10,13 @@
      </button> -->
    </mat-drawer>
 
-   <div class="example-sidenav-content">
-      <button type="button" mat-button (click)="drawer.toggle()">
-         close
-      </button>
-      <router-outlet></router-outlet>
-   </div>
+   <main class="bg-sky-50 min-h-screen w-full flex flex-col">
+      <header class="bg-white w-full p-6 flex justify-end">Admin</header>
+      <section class="p-6">
+         <router-outlet></router-outlet>
+      </section>
+      <footer class="text-center text-xs text-neutral-500 py-2 ">test angular developer PT Swadharma Duta Data 2023
+      </footer>
+   </main>
 
 </mat-drawer-container>

@@ -1,1 +1,10 @@
-<p>main-dashboard works!</p>
+<h2 class="font-bold text-2xl text-neutral-900">Dashboard</h2>
+<!-- chart -->
+<div class="bg-white rounded-lg my-4">
+   <div id="chart">
+      <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!" [xaxis]="chartOptions.xaxis!"
+         [stroke]="chartOptions.stroke!" [tooltip]="chartOptions.tooltip!" [dataLabels]="chartOptions.dataLabels!"
+         [legend]="chartOptions.legend!" [markers]="chartOptions.markers!" [grid]="chartOptions.grid!"
+         [yaxis]="chartOptions.yaxis!" [title]="chartOptions.title!"></apx-chart>
+   </div>
+</div>
