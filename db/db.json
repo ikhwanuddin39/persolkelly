@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "name": "John Doe",
+      "address": "123 Main St",
+      "email": "johndoe@gmail.com"
+    },
+    {
+      "name": "Jane Doe",
+      "address": "123 Main St",
+      "email": "janedoe@gmail.com"
+    },
+    {
+      "name": "John Smith",
+      "address": "123 Main St",
+      "email": "johnsmith@gmail.com"
+    }
+  ],
+  "products": [
+    {
+      "name": "Widget",
+      "price": 10000,
+      "description": "A small widget"
+    },
+    {
+      "name": "Sling Bag",
+      "price": 40000,
+      "description": "A small sling bag"
+    },
+    {
+      "name": "T-Shirt",
+      "price": 20000,
+      "description": "A small t-shirt"
+    },
+    {
+      "name": "Shoes",
+      "price": 50000,
+      "description": "A small shoes"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Widgets",
+      "description": "All kinds of widgets"
+    },
+    {
+      "name": "Bags",
+      "description": "All kinds of bags"
+    },
+    {
+      "name": "Clothes",
+      "description": "All kinds of clothes"
+    },
+    {
+      "name": "Shoes",
+      "description": "All kinds of shoes"
+    }
+  ]
+}
