@@ -9,6 +9,7 @@ import { Product, ProductService } from 'src/app/core/api/product.service';
 export class ManajemenProductComponent implements OnInit {
   pageTitle = 'Manajemen Product'
   data: Product[] = []
+
   constructor(
     private service: ProductService
   ) { }
@@ -21,5 +22,10 @@ export class ManajemenProductComponent implements OnInit {
     this.service.getAll().subscribe(res => {
       this.data = res
     })
+  }
+
+  handleButtonClick() {
+    console.log('Button Clicked');
+
   }
 }
