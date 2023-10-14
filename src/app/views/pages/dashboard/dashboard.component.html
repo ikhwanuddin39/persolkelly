@@ -1,15 +1,17 @@
 <mat-drawer-container class="min-h-screen" autosize>
-   <mat-drawer #sidenav opened mode="side" class="!bg-sky-800">
+   <!-- sidebar -->
+   <mat-drawer #sidenav opened mode="side" class="!bg-sky-800 !border-r-0 p-6">
       <div>
-         <!-- <h1 class="font-semibold p-4 text-white text-xl">Dashboard Product</h1> -->
-         <div class="px-10 py-4">
+         <!-- logo -->
+         <div class="p-4">
             <img src="assets/img/logo.png" class="invert w-40 mx-auto" alt="">
          </div>
-         <ul>
+         <!-- menu -->
+         <ul class="flex flex-col gap-3 mt-6">
             <ng-container *ngFor="let m of menu">
                <li>
                   <a [routerLink]="m.link"
-                     class="!text-white hover:bg-sky-400 hover:text-white p-4 flex items-center gap-3"
+                     class="!text-white hover:bg-sky-400 hover:text-white p-4 flex items-center gap-3 rounded-lg ease-in-out duration-200 transition-all"
                      routerLinkActive="bg-sky-400 font-semibold">
                      <mat-icon class="!text-white">{{ m.icon }}</mat-icon>
                      <span class="!text-white">{{ m.title }}</span>
@@ -19,13 +21,15 @@
          </ul>
       </div>
    </mat-drawer>
-
-   <main class="bg-sky-50 min-h-screen w-full flex flex-col">
-      <app-topbar (toggleSidebar)="toggleSidenav()"></app-topbar>
-      <section class="p-6">
-         <router-outlet></router-outlet>
-      </section>
-      <app-footer></app-footer>
-   </main>
+   <!-- content -->
+   <mat-drawer-content>
+      <main class="bg-sky-50 min-h-screen w-full flex flex-col">
+         <app-topbar (toggleSidebar)="toggleSidenav()"></app-topbar>
+         <section class="p-6">
+            <router-outlet></router-outlet>
+         </section>
+         <app-footer></app-footer>
+      </main>
+   </mat-drawer-content>
 
 </mat-drawer-container>
