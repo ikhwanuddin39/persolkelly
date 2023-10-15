@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product, ProductService } from 'src/app/core/api/product.service';
 
 @Component({
@@ -12,7 +13,9 @@ export class ManajemenProductComponent implements OnInit {
   displayColumns: string[] = ['no', 'name', 'price', 'stock', 'actionsDesc']
 
   constructor(
-    private service: ProductService
+    private service: ProductService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +30,12 @@ export class ManajemenProductComponent implements OnInit {
     })
   }
 
-  handleButtonClick() {
-    console.log('Button Clicked');
+  handleAdd() {
+    this.router.navigate(['./action'], {
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        m: 'add'
+      },
+    });
   }
 }

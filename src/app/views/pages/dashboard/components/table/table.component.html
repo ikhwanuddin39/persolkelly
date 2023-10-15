@@ -9,21 +9,21 @@
             <mat-cell *matCellDef="let element; let i = index" class="font-poppins">
                <!-- Tampilkan tombol Edit dan Hapus di kolom "Action" -->
                <ng-container *ngIf="column === 'actions'">
-                  <div class="flex items-center gap-4">
-                     <app-button [buttonText]="'Edit'" [buttonType]="'edit'"
+                  <div class="flex items-center gap-4 py-3">
+                     <app-button [buttonText]="'Edit'" [buttonType]="'primary'"
                         (buttonClick)="editItem(element)"></app-button>
-                     <app-button [buttonText]="'Delete'" [buttonType]="'delete'" (buttonClick)="deleteItem(element)">
+                     <app-button [buttonText]="'Delete'" [buttonType]="'danger'" (buttonClick)="deleteItem(element)">
                      </app-button>
                   </div>
                </ng-container>
                <!-- Tampilkan tombol Edit, Hapus dan Deskripsi di kolom "Action" -->
                <ng-container *ngIf="column === 'actionsDesc'">
-                  <div class="flex items-center gap-4">
-                     <app-button [buttonText]="'Edit'" [buttonType]="'edit'"
+                  <div class="flex items-center gap-4 py-3">
+                     <app-button [buttonText]="'Edit'" [buttonType]="'primary'"
                         (buttonClick)="editItem(element)"></app-button>
-                     <app-button [buttonText]="'Delete'" [buttonType]="'delete'" (buttonClick)="deleteItem(element)">
+                     <app-button [buttonText]="'Delete'" [buttonType]="'danger'" (buttonClick)="deleteItem(element)">
                      </app-button>
-                     <app-button [buttonText]="'Desc'" [buttonType]="'desc'" (buttonClick)="descItem(element)">
+                     <app-button [buttonText]="'Desc'" [buttonType]="''" (buttonClick)="descItem(element)">
                      </app-button>
                   </div>
                </ng-container>

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ManajemenProductComponent } from './manajemen-product.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ButtonAddComponent } from '../components/button/button-add/button-add.component';
 import { TableComponent } from '../components/table/table.component';
 import { EmptyStateComponent } from '../components/empty-state/empty-state.component';
 import { ButtonComponent } from '../components/button/button.component';
@@ -23,7 +22,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ButtonAddComponent,
     TableComponent,
     EmptyStateComponent,
     ButtonComponent
