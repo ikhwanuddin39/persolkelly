@@ -6,7 +6,6 @@ import { ButtonComponent } from '../button/button.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
-import { TableService } from './table.service';
 
 @Component({
   selector: 'app-table',
@@ -26,7 +25,6 @@ export class TableComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private dialog: MatDialog,
-    private tableService: TableService
   ) { }
 
   ngOnInit(): void {

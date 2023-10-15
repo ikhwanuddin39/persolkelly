@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product, ProductService } from 'src/app/core/api/product.service';
-import { TableService } from '../components/table/table.service';
 
 @Component({
   selector: 'app-manajemen-product',
@@ -16,8 +15,7 @@ export class ManajemenProductComponent implements OnInit {
   constructor(
     private service: ProductService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private tableService: TableService
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -27,9 +25,6 @@ export class ManajemenProductComponent implements OnInit {
   getData() {
     this.service.getAll().subscribe(res => {
       this.data = res
-      console.log(this.data);
-      this.tableService.triggerTableChange()
-
     })
   }
 
