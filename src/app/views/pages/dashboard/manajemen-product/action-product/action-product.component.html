@@ -55,12 +55,12 @@
             <label for="category"
                class="text-zinc-800 capitalize block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">category</label>
             <select formControlName="category_id"
-               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': helpers.hasError(form, 'category', 'required')}"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': helpers.hasError(form, 'category_id', 'required')}"
                class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required>
                <option [value]="null" selected hidden>-- select category --</option>
                <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
             </select>
-            <span *ngIf="helpers.hasError(form, 'category', 'required')" class="text-red-600 text-sm">
+            <span *ngIf="helpers.hasError(form, 'category_id', 'required')" class="text-red-600 text-sm">
                Harus diisi
             </span>
          </div>
