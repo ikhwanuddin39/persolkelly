@@ -29,6 +29,5 @@ export class ManajemenProductComponent implements OnInit {
 
   handleButtonClick() {
     console.log('Button Clicked');
-
   }
 }

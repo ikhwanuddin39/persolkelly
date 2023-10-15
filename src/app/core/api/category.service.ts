@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ApiService } from '../services/api.service';
 export interface Category {
   id: string;
   name: string;
@@ -7,7 +8,6 @@ export interface Category {
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
-
-  constructor() { }
+export class CategoryService extends ApiService<Category> {
+  override endpoint = 'categories';
 }
