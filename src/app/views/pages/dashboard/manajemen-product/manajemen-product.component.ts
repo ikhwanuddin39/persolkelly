@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product, ProductService } from 'src/app/core/api/product.service';
+import { HelpersService } from 'src/app/core/services/helpers.service';
 
 @Component({
   selector: 'app-manajemen-product',
@@ -15,7 +16,8 @@ export class ManajemenProductComponent implements OnInit {
   constructor(
     private service: ProductService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public helpers: HelpersService
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +42,7 @@ export class ManajemenProductComponent implements OnInit {
   delete(id: any) {
     this.service.delete(id).subscribe(res => {
       this.getData()
+      this.helpers.alertSuccess('Berhasil menghapus data')
     })
   }
 }
