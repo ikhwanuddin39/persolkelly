@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/core/api/category.service';
 import { Product, ProductService } from 'src/app/core/api/product.service';
 import { switchMap, map } from 'rxjs/operators';
+import { Subject, takeUntil } from 'rxjs';
+
 @Component({
   selector: 'app-detail-product',
   templateUrl: './detail-product.component.html',
   styleUrls: ['./detail-product.component.scss']
 })
-export class DetailProductComponent implements OnInit {
-  pageTitle = 'Detail Product'
-  id: any
-  data: Product | undefined
-
+export class DetailProductComponent implements OnInit, OnDestroy {
+  pageTitle = 'Detail Product';
+  id: any;
+  data: Product | undefined;
+  private destroy$ = new Subject<void>();
 
   constructor(
     private service: ProductService,
@@ -24,7 +26,12 @@ export class DetailProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getData()
+    this.getData();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   getData() {
@@ -36,7 +43,8 @@ export class DetailProductComponent implements OnInit {
             return product;
           })
         );
-      })
+      }),
+      takeUntil(this.destroy$) // Unsubscribe saat komponen dihancurkan
     ).subscribe(res => {
       this.data = res;
     });
@@ -46,10 +54,9 @@ export class DetailProductComponent implements OnInit {
     return this.categoryService.getById(id);
   }
 
-
   onBack() {
     this.router.navigate(['../'], {
       relativeTo: this.activatedRoute
-    })
+    });
   }
 }
