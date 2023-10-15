@@ -1,1 +1,38 @@
-<p>action-category works!</p>
+<section class="flex justify-center">
+   <div class="bg-white lg:w-6/12 md:w-8/12 w-full rounded-lg p-6 shadow">
+      <!-- title -->
+      <div class="flex items-center justify-between">
+         <h2 class="font-bold text-2xl text-neutral-900">{{pageTitle}}</h2>
+      </div>
+      <!-- form -->
+      <form [formGroup]="form">
+         <!-- name -->
+         <div>
+            <label for="name"
+               class="text-zinc-800 capitalize block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">name</label>
+            <input type="text" formControlName="name"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': helpers.hasError(form, 'name', 'required')}"
+               class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required />
+            <span *ngIf="helpers.hasError(form, 'name', 'required')" class="text-red-600 text-sm">
+               Harus diisi
+            </span>
+         </div>
+         <!-- description -->
+         <div class="mt-4">
+            <label for="description"
+               class="text-zinc-800 capitalize block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">description</label>
+            <textarea formControlName="description"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': helpers.hasError(form, 'description', 'required')}"
+               class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required></textarea>
+            <span *ngIf="helpers.hasError(form, 'description', 'required')" class="text-red-600 text-sm">
+               Harus diisi
+            </span>
+         </div>
+         <!-- button -->
+         <div class="flex mt-4 justify-end gap-4">
+            <app-button [buttonText]="'Cancel'" [buttonType]="''" (buttonClick)="onCancel()"></app-button>
+            <app-button [buttonText]="'Submit'" [buttonType]="'secondary'" (buttonClick)="onSubmit()"></app-button>
+         </div>
+      </form>
+   </div>
+</section>

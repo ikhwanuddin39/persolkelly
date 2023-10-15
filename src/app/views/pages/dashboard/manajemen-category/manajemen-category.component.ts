@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Category, CategoryService } from 'src/app/core/api/category.service';
+import { HelpersService } from 'src/app/core/services/helpers.service';
 
 @Component({
   selector: 'app-manajemen-category',
@@ -9,10 +11,13 @@ import { Category, CategoryService } from 'src/app/core/api/category.service';
 export class ManajemenCategoryComponent {
   pageTitle = 'Manajemen Category'
   data: Category[] = []
-  displayColumns: string[] = ['no', 'name', 'description', 'actionsDesc']
+  displayColumns: string[] = ['name', 'description', 'actions']
 
   constructor(
-    private service: CategoryService
+    private service: CategoryService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    public helpers: HelpersService
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +32,19 @@ export class ManajemenCategoryComponent {
     })
   }
 
-  handleButtonClick() {
-    console.log('Button Clicked');
+  handleAdd() {
+    this.router.navigate(['./action'], {
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        m: 'add'
+      },
+    });
+  }
+
+  delete(id: any) {
+    this.service.delete(id).subscribe(res => {
+      this.getData()
+      this.helpers.alertSuccess('Berhasil menghapus data')
+    })
   }
 }

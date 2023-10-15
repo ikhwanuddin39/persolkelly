@@ -32,20 +32,25 @@ export class ActionProductComponent implements OnInit, OnDestroy {
       category_id: [null, Validators.required],
     });
     this.mode = this.activatedRoute.snapshot.queryParams['m'];
+
+  }
+
+  ngOnInit(): void {
+    this.getData()
+    this.getCategory()
+  }
+
+  ngOnDestroy(): void {
+
+  }
+
+  getData() {
     if (this.mode === 'edit') {
       this.pageTitle = 'Edit Product';
       this.service.getById(this.activatedRoute.snapshot.queryParams['id']).subscribe(res => {
         this.form.patchValue(res);
       });
     }
-  }
-
-  ngOnInit(): void {
-    this.getCategory()
-  }
-
-  ngOnDestroy(): void {
-
   }
 
   getCategory() {
