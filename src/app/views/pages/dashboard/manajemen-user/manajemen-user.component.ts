@@ -9,7 +9,7 @@ import { User, UserService } from 'src/app/core/api/user.service';
 export class ManajemenUserComponent {
   pageTitle = 'Manajemen User'
   data: User[] = []
-  displayColumns: string[] = ['no', 'name', 'email', 'address', 'actions']
+  displayColumns: string[] = ['name', 'email', 'address', 'actions']
 
   constructor(
     private service: UserService

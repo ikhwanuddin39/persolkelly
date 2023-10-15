@@ -1,0 +1,40 @@
+<section class="flex justify-center">
+   <div class="bg-white lg:w-6/12 md:w-8/12 w-full rounded-lg p-6 shadow">
+      <!-- title -->
+      <div class="flex items-center justify-between">
+         <h2 class="font-bold text-2xl text-neutral-900">{{pageTitle}}</h2>
+         <button class="text-neutral-400 hover:text-neutral-500 active:text-neutral-600 underline"
+            (click)="onBack()">cancel</button>
+      </div>
+      <!-- content -->
+      <div class="">
+         <!-- nama -->
+         <div class="flex justify-between">
+            <p class="text-sky-700">Nama Product</p>
+            <p class="text-neutral-500">{{data?.name ?? '-' }}</p>
+         </div>
+         <!-- harga -->
+         <div class="flex justify-between">
+            <p class="text-sky-700">Harga</p>
+            <p class="text-neutral-500">{{data?.price ?? 0 | currency : 'Rp. '}}</p>
+         </div>
+         <!-- stok -->
+         <div class="flex justify-between">
+            <p class="text-sky-700">Stok</p>
+            <p class="text-neutral-500">{{data?.stock ?? '-' }}</p>
+         </div>
+         <!-- deskripsi -->
+         <div class="flex justify-between">
+            <p class="text-sky-700">Deskripsi</p>
+            <p class="text-neutral-500">{{data?.description ?? '-' }}</p>
+         </div>
+         <!-- kategori -->
+         <div class="flex justify-between">
+            <p class="text-sky-700">Kategori</p>
+            <p class="text-neutral-500">{{data?.category?.name ?? '-' }}</p>
+         </div>
+
+      </div>
+
+   </div>
+</section>

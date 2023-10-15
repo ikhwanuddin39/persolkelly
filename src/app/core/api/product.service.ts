@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { Category } from './category.service';
 export interface Product {
   id: number;
   name: string;
@@ -7,7 +8,7 @@ export interface Product {
   stock: number;
   description: string;
   category_id: string;
-  // category: string;
+  category: Category;
 }
 @Injectable({
   providedIn: 'root'

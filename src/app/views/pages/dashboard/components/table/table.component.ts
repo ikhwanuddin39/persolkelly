@@ -13,7 +13,7 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
   imports: [CommonModule, MatTableModule, MatPaginatorModule, ButtonComponent, MatDialogModule],
   templateUrl: './table.component.html'
 })
-export class TableComponent implements OnInit {
+export class TableComponent {
   @Input() data: any[] = []; // Data tabel
   pageSize = 10;
   dataSource = new MatTableDataSource<any>([]);// Data tabel yang ditampilkan
@@ -26,14 +26,6 @@ export class TableComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private dialog: MatDialog,
   ) { }
-
-  ngOnInit(): void {
-
-  }
-
-  ngAfterViewInit() {
-
-  }
 
   editItem(item: any) {
     console.log(item);
@@ -61,7 +53,12 @@ export class TableComponent implements OnInit {
   }
 
   descItem(item: any) {
-    console.log(item);
+    this.router.navigate(['./detail'], {
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        id: item?.id
+      },
+    });
   }
 
 
