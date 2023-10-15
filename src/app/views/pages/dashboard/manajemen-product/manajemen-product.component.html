@@ -5,5 +5,8 @@
       <app-button-add [buttonText]="'Add Product'" (buttonClick)="handleButtonClick()"></app-button-add>
    </div>
    <!-- table -->
-   <app-table [data]="data" [columns]="displayColumns"></app-table>
+   <app-table *ngIf="data.length > 0" [data]="data" [columns]="displayColumns"></app-table>
+   <!-- empty state -->
+   <app-empty-state *ngIf="data.length == 0" [title]="'No Product'"
+      [description]="'Add your first product!!'"></app-empty-state>
 </section>

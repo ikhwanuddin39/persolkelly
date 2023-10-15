@@ -4,6 +4,7 @@ import { ManajemenProductComponent } from './manajemen-product.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ButtonAddComponent } from '../components/button/button-add/button-add.component';
 import { TableComponent } from '../components/table/table.component';
+import { EmptyStateComponent } from '../components/empty-state/empty-state.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ButtonAddComponent,
-    TableComponent
+    TableComponent,
+    EmptyStateComponent
   ]
 })
 export class ManajemenProductModule { }
