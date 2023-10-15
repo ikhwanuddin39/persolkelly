@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: '',
     component: ManajemenUserComponent
+  },
+  {
+    path: 'action',
+    loadChildren: () => import('./action-user/action-user.module').then(m => m.ActionUserModule)
   }
 ]
 

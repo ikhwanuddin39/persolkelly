@@ -11,6 +11,9 @@ const routes: Routes = [
   {
     path: '',
     component: ManajemenProductComponent
+  }, {
+    path: 'action',
+    loadChildren: () => import('./action-product/action-product.module').then(m => m.ActionProductModule)
   }
 ]
 @NgModule({
