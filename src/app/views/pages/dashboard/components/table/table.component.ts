@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -9,21 +9,19 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
   imports: [CommonModule, MatTableModule, MatPaginatorModule],
   templateUrl: './table.component.html'
 })
-export class TableComponent implements OnInit, AfterViewInit {
+export class TableComponent implements OnInit {
   @Input() data: any[] = []; // Data tabel
   pageSize = 10;
-  // dataSource = this.data.slice(0, this.pageSize); // Data tabel yang ditampilkan
+  dataSource: any[] = []; // Data tabel yang ditampilkan
   @Input() columns: string[] = []; // Nama kolom tabel
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // Set jumlah item per halaman
 
   ngOnInit(): void {
-    console.log(this.data);
-  }
-
-  ngAfterViewInit(): void {
-    console.log(this.data);
-
+    // Tambahkan kolom no
+    this.data.map((item, index) => {
+      item.no = index + 1;
+    })
+    this.dataSource = this.data.slice(0, this.pageSize); // Data tabel yang ditampilkan
   }
 
   editItem(item: any) {
@@ -49,7 +47,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   updateDataSource() {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     const endIndex = startIndex + this.paginator.pageSize;
-    // this.dataSource = this.data.slice(startIndex, endIndex);
+    this.dataSource = this.data.slice(startIndex, endIndex);
   }
 
 }

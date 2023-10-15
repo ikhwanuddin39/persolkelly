@@ -9,7 +9,7 @@ import { Product, ProductService } from 'src/app/core/api/product.service';
 export class ManajemenProductComponent implements OnInit {
   pageTitle = 'Manajemen Product'
   data: Product[] = []
-  displayColumns: string[] = ['name', 'price', 'stock', 'actionsDesc']
+  displayColumns: string[] = ['no', 'name', 'price', 'stock', 'actionsDesc']
 
   constructor(
     private service: ProductService

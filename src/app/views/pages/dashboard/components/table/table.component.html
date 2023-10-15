@@ -1,10 +1,10 @@
 <section class="bg-white p-4 rounded-xl mt-4">
-   <mat-table [dataSource]="data">
+   <mat-table [dataSource]="dataSource">
       <ng-container *ngFor="let column of columns" [matColumnDef]="column">
          <mat-header-cell *matHeaderCellDef class="uppercase font-poppins">{{ column == 'actionsDesc' ? 'actions' :
             column
             }}</mat-header-cell>
-         <mat-cell *matCellDef="let element" class="font-poppins">
+         <mat-cell *matCellDef="let element; let i = index" class="font-poppins">
             <!-- Tampilkan tombol Edit dan Hapus di kolom "Action" -->
             <ng-container *ngIf="column === 'actions'">
                <button mat-button (click)="editItem(element)">Edit</button>
@@ -16,8 +16,12 @@
                <button mat-button (click)="deleteItem(element)">Delete</button>
                <button mat-button (click)="descItem(element)">Desc</button>
             </ng-container>
+            <!-- Tampilkan nomor urut -->
+            <ng-container *ngIf="column === 'no'">
+               {{ element?.no }}
+            </ng-container>
             <!-- Tampilkan data dalam kolom lain -->
-            <ng-container *ngIf="column !== 'actions' && column !== 'actionsDesc'">
+            <ng-container *ngIf="column !== 'actions' && column !== 'actionsDesc' && column !== 'no'">
                {{ element[column] ?? '-' }} <!-- Jika data kosong, tampilkan tanda "-" -->
             </ng-container>
          </mat-cell>

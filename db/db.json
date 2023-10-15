@@ -51,6 +51,118 @@
       "stock": 2,
       "description": "A small shoes",
       "category_id": "db5c86d4-c3a7-4e10-9da4-ff3e3960c7f1"
+    },
+    {
+      "id": "7d9a4281-1a88-4d15-bb77-0f6e2096c24c",
+      "name": "Laptop",
+      "price": 60000,
+      "stock": 5,
+      "description": "A powerful laptop",
+      "category_id": "93c8d0d7-8f1b-4613-a430-4755f703eeb6"
+    },
+    {
+      "id": "d9fa8c20-9a91-4c87-bfc9-8719923ccf9f",
+      "name": "Headphones",
+      "price": 25000,
+      "stock": 10,
+      "description": "High-quality headphones",
+      "category_id": "9c2a10fc-670b-43e6-87d5-7a407a3ab6f5"
+    },
+    {
+      "id": "3187c5f0-ecaa-4e20-bd6a-c5f01f49638a",
+      "name": "Smartphone",
+      "price": 35000,
+      "stock": 7,
+      "description": "A feature-rich smartphone",
+      "category_id": "bf71ed75-9026-4509-b1d0-61ef59ac4b6b"
+    },
+    {
+      "id": "f44cf19c-6c04-4aa0-8d5b-d08a6b89479a",
+      "name": "Camera",
+      "price": 45000,
+      "stock": 3,
+      "description": "A high-resolution camera",
+      "category_id": "db5c86d4-c3a7-4e10-9da4-ff3e3960c7f1"
+    },
+    {
+      "id": "41f6093d-9793-4ca2-8c23-dffba120e3c6",
+      "name": "Desk Chair",
+      "price": 30000,
+      "stock": 4,
+      "description": "Comfortable desk chair",
+      "category_id": "93c8d0d7-8f1b-4613-a430-4755f703eeb6"
+    },
+    {
+      "id": "66c85309-8462-4f50-9c98-c3c4c00637c2",
+      "name": "Watch",
+      "price": 15000,
+      "stock": 6,
+      "description": "Elegant wristwatch",
+      "category_id": "9c2a10fc-670b-43e6-87d5-7a407a3ab6f5"
+    },
+    {
+      "id": "3cfebb7f-3e8f-4e9d-aee1-1c315aa429b0",
+      "name": "Backpack",
+      "price": 28000,
+      "stock": 8,
+      "description": "Spacious backpack",
+      "category_id": "bf71ed75-9026-4509-b1d0-61ef59ac4b6b"
+    },
+    {
+      "id": "0a376d41-38c7-4c33-b71a-8462621e45f6",
+      "name": "Gaming Mouse",
+      "price": 35000,
+      "stock": 4,
+      "description": "Precision gaming mouse",
+      "category_id": "db5c86d4-c3a7-4e10-9da4-ff3e3960c7f1"
+    },
+    {
+      "id": "f2b45b58-7a57-4b15-bde6-0a39f97b6d17",
+      "name": "Tablet",
+      "price": 27000,
+      "stock": 6,
+      "description": "Portable tablet device",
+      "category_id": "93c8d0d7-8f1b-4613-a430-4755f703eeb6"
+    },
+    {
+      "id": "979b3b88-4c91-4a0a-9907-4c02b7b91f7e",
+      "name": "Wireless Keyboard",
+      "price": 22000,
+      "stock": 9,
+      "description": "Wireless computer keyboard",
+      "category_id": "9c2a10fc-670b-43e6-87d5-7a407a3ab6f5"
+    },
+    {
+      "id": "aaf0b0c2-9f16-4d9b-9df3-54033ac7b20f",
+      "name": "Monitor",
+      "price": 32000,
+      "stock": 7,
+      "description": "High-resolution computer monitor",
+      "category_id": "bf71ed75-9026-4509-b1d0-61ef59ac4b6b"
+    },
+    {
+      "id": "6db542b3-cd50-4e9b-b62a-bc8014f06896",
+      "name": "Bluetooth Speaker",
+      "price": 18000,
+      "stock": 12,
+      "description": "Portable Bluetooth speaker",
+      "category_id": "db5c86d4-c3a7-4e10-9da4-ff3e3960c7f1"
+    },
+    {
+      "id": "7270b925-b6b4-4933-84a7-5b2e3bce25b6",
+      "name": "Desk Lamp",
+      "price": 15000,
+      "stock": 10,
+      "description": "Adjustable desk lamp",
+      "category_id": "93c8d0d7-8f1b-4613-a430-4755f703eeb6"
+    },
+    {
+      "id": "a74b3cc1-2f31-4fe0-8427-11d0c285fd9b",
+      "name": "Smartwatch",
+      "price": 25000,
+      "stock": 5,
+      "description": "Fitness tracking smartwatch",
+      "category_id": "9c2a10fc-670b-43e6-87d5-7a407a3ab6f5"
     }
   ],
   "categories": [
