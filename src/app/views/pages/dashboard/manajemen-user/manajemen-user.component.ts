@@ -27,8 +27,6 @@ export class ManajemenUserComponent {
   getData() {
     this.service.getAll().subscribe(res => {
       this.data = res
-      console.log(this.data);
-
     })
   }
 
