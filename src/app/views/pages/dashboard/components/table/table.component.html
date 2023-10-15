@@ -9,8 +9,12 @@
             <mat-cell *matCellDef="let element; let i = index" class="font-poppins">
                <!-- Tampilkan tombol Edit dan Hapus di kolom "Action" -->
                <ng-container *ngIf="column === 'actions'">
-                  <button mat-button (click)="editItem(element)">Edit</button>
-                  <button mat-button (click)="deleteItem(element)">Delete</button>
+                  <div class="flex items-center gap-4">
+                     <app-button [buttonText]="'Edit'" [buttonType]="'edit'"
+                        (buttonClick)="editItem(element)"></app-button>
+                     <app-button [buttonText]="'Delete'" [buttonType]="'delete'" (buttonClick)="deleteItem(element)">
+                     </app-button>
+                  </div>
                </ng-container>
                <!-- Tampilkan tombol Edit, Hapus dan Deskripsi di kolom "Action" -->
                <ng-container *ngIf="column === 'actionsDesc'">

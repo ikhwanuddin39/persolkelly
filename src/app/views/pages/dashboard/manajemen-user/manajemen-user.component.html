@@ -1,1 +1,12 @@
-<p>manajemen-user works!</p>
+<section>
+   <!-- top -->
+   <div class="flex items-center justify-between">
+      <h1 class="font-semibold text-2xl">{{pageTitle}}</h1>
+      <app-button [buttonText]="'Add User'" [buttonType]="'add'" (buttonClick)="handleButtonClick()"></app-button>
+   </div>
+   <!-- table -->
+   <app-table *ngIf="data.length > 0" [data]="data" [columns]="displayColumns"></app-table>
+   <!-- empty state -->
+   <app-empty-state *ngIf="data.length == 0" [title]="'No User'"
+      [description]="'Add your first user!'"></app-empty-state>
+</section>

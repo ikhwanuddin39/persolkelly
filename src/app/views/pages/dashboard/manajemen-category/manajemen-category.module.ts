@@ -6,10 +6,16 @@ import { ButtonComponent } from '../components/button/button.component';
 import { TableComponent } from '../components/table/table.component';
 import { EmptyStateComponent } from '../components/empty-state/empty-state.component';
 
-const routes: Routes = [{
-  path: '',
-  component: ManajemenCategoryComponent
-}]
+const routes: Routes = [
+  {
+    path: '',
+    component: ManajemenCategoryComponent
+  },
+  {
+    path: 'action',
+    loadChildren: () => import('./action-category/action-category.module').then(m => m.ActionCategoryModule)
+  }
+]
 
 @NgModule({
   declarations: [

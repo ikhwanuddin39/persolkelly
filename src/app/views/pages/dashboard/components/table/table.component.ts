@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { ButtonComponent } from '../button/button.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -17,6 +18,11 @@ export class TableComponent implements OnInit {
   @Input() columns: string[] = []; // Nama kolom tabel
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { }
+
   ngOnInit(): void {
     // Tambahkan kolom no
     this.data.map((item, index) => {
@@ -27,6 +33,13 @@ export class TableComponent implements OnInit {
 
   editItem(item: any) {
     console.log(item);
+    this.router.navigate(['./action'], {
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        m: 'edit',
+        id: item?.id
+      },
+    });
   }
 
   deleteItem(item: any) {
