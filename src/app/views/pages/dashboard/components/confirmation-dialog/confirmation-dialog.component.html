@@ -1,1 +1,9 @@
-<p>confirmation-dialog works!</p>
+<div class="flex flex-col justify-center items-center py-4 px-8">
+
+   <h2 class="text-lg text-zinc-800 font-medium">{{data?.title ?? 'Apakah anda yakin?'}}</h2>
+   <p class="text-zinc-500 text-sm text-center">{{data?.message}}</p>
+   <div class="flex justify-center gap-4 mt-3">
+      <app-button [buttonText]="'Cancel'" [buttonType]="''" (buttonClick)="close(false)"></app-button>
+      <app-button [buttonText]="'Ok'" [buttonType]="'secondary'" (buttonClick)="close(true)"></app-button>
+   </div>
+</div>

@@ -1,6 +1,6 @@
 <section class="bg-white p-4 rounded-xl mt-4">
    <div class="overflow-scroll w-full">
-      <mat-table [dataSource]="dataSource" class="">
+      <mat-table [dataSource]="data" class="">
          <ng-container *ngFor="let column of columns" [matColumnDef]="column">
             <mat-header-cell *matHeaderCellDef class="uppercase font-poppins">{{ column == 'actionsDesc' ?
                'actions' :
@@ -28,11 +28,11 @@
                   </div>
                </ng-container>
                <!-- Tampilkan nomor urut -->
-               <ng-container *ngIf="column === 'no'">
+               <!-- <ng-container *ngIf="column === 'no'">
                   {{ element?.no }}
-               </ng-container>
+               </ng-container> -->
                <!-- Tampilkan data dalam kolom lain -->
-               <ng-container *ngIf="column !== 'actions' && column !== 'actionsDesc' && column !== 'no'">
+               <ng-container *ngIf="column !== 'actions' && column !== 'actionsDesc'">
                   {{ element[column] ?? '-' }} <!-- Jika data kosong, tampilkan tanda "-" -->
                </ng-container>
             </mat-cell>
@@ -43,7 +43,4 @@
       </mat-table>
    </div>
 
-   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons [length]="data.length" [pageSize]="pageSize"
-      (page)="onPageChange($event)">
-   </mat-paginator>
 </section>

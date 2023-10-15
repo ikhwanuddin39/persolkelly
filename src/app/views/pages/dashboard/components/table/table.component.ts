@@ -1,34 +1,40 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { ButtonComponent } from '../button/button.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { TableService } from './table.service';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatPaginatorModule, ButtonComponent],
+  imports: [CommonModule, MatTableModule, MatPaginatorModule, ButtonComponent, MatDialogModule],
   templateUrl: './table.component.html'
 })
 export class TableComponent implements OnInit {
   @Input() data: any[] = []; // Data tabel
   pageSize = 10;
-  dataSource: any[] = []; // Data tabel yang ditampilkan
+  dataSource = new MatTableDataSource<any>([]);// Data tabel yang ditampilkan
   @Input() columns: string[] = []; // Nama kolom tabel
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @Output() deleteSelected = new EventEmitter<any>();
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private dialog: MatDialog,
+    private tableService: TableService
   ) { }
 
   ngOnInit(): void {
-    // Tambahkan kolom no
-    this.data.map((item, index) => {
-      item.no = index + 1;
-    })
-    this.dataSource = this.data.slice(0, this.pageSize); // Data tabel yang ditampilkan
+
+  }
+
+  ngAfterViewInit() {
+
   }
 
   editItem(item: any) {
@@ -44,24 +50,21 @@ export class TableComponent implements OnInit {
 
   deleteItem(item: any) {
     console.log(item);
+    this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        title: 'Hapus Data',
+        message: 'Apakah anda yakin ingin menghapus data ini?'
+      }
+    }).afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteSelected.emit(item.id);
+      }
+    })
   }
 
   descItem(item: any) {
     console.log(item);
   }
 
-  // Handler perubahan halaman
-  onPageChange(event: any) {
-    this.paginator.pageIndex = event.pageIndex;
-    this.paginator.pageSize = event.pageSize;
-    this.updateDataSource();
-  }
-
-  // Mengatur ulang data yang ditampilkan sesuai halaman
-  updateDataSource() {
-    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
-    const endIndex = startIndex + this.paginator.pageSize;
-    this.dataSource = this.data.slice(startIndex, endIndex);
-  }
 
 }
