@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ButtonAddComponent } from '../components/button/button-add/button-add.component';
 import { TableComponent } from '../components/table/table.component';
 import { EmptyStateComponent } from '../components/empty-state/empty-state.component';
+import { ButtonComponent } from '../components/button/button.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ButtonAddComponent,
     TableComponent,
-    EmptyStateComponent
+    EmptyStateComponent,
+    ButtonComponent
   ]
 })
 export class ManajemenProductModule { }

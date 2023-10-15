@@ -1,35 +1,43 @@
 <section class="bg-white p-4 rounded-xl mt-4">
-   <mat-table [dataSource]="dataSource">
-      <ng-container *ngFor="let column of columns" [matColumnDef]="column">
-         <mat-header-cell *matHeaderCellDef class="uppercase font-poppins">{{ column == 'actionsDesc' ? 'actions' :
-            column
-            }}</mat-header-cell>
-         <mat-cell *matCellDef="let element; let i = index" class="font-poppins">
-            <!-- Tampilkan tombol Edit dan Hapus di kolom "Action" -->
-            <ng-container *ngIf="column === 'actions'">
-               <button mat-button (click)="editItem(element)">Edit</button>
-               <button mat-button (click)="deleteItem(element)">Delete</button>
-            </ng-container>
-            <!-- Tampilkan tombol Edit, Hapus dan Deskripsi di kolom "Action" -->
-            <ng-container *ngIf="column === 'actionsDesc'">
-               <button mat-button (click)="editItem(element)">Edit</button>
-               <button mat-button (click)="deleteItem(element)">Delete</button>
-               <button mat-button (click)="descItem(element)">Desc</button>
-            </ng-container>
-            <!-- Tampilkan nomor urut -->
-            <ng-container *ngIf="column === 'no'">
-               {{ element?.no }}
-            </ng-container>
-            <!-- Tampilkan data dalam kolom lain -->
-            <ng-container *ngIf="column !== 'actions' && column !== 'actionsDesc' && column !== 'no'">
-               {{ element[column] ?? '-' }} <!-- Jika data kosong, tampilkan tanda "-" -->
-            </ng-container>
-         </mat-cell>
-      </ng-container>
+   <div class="overflow-scroll w-full">
+      <mat-table [dataSource]="dataSource" class="">
+         <ng-container *ngFor="let column of columns" [matColumnDef]="column">
+            <mat-header-cell *matHeaderCellDef class="uppercase font-poppins">{{ column == 'actionsDesc' ?
+               'actions' :
+               column
+               }}</mat-header-cell>
+            <mat-cell *matCellDef="let element; let i = index" class="font-poppins">
+               <!-- Tampilkan tombol Edit dan Hapus di kolom "Action" -->
+               <ng-container *ngIf="column === 'actions'">
+                  <button mat-button (click)="editItem(element)">Edit</button>
+                  <button mat-button (click)="deleteItem(element)">Delete</button>
+               </ng-container>
+               <!-- Tampilkan tombol Edit, Hapus dan Deskripsi di kolom "Action" -->
+               <ng-container *ngIf="column === 'actionsDesc'">
+                  <div class="flex items-center gap-4">
+                     <app-button [buttonText]="'Edit'" [buttonType]="'edit'"
+                        (buttonClick)="editItem(element)"></app-button>
+                     <app-button [buttonText]="'Delete'" [buttonType]="'delete'" (buttonClick)="deleteItem(element)">
+                     </app-button>
+                     <app-button [buttonText]="'Desc'" [buttonType]="'desc'" (buttonClick)="descItem(element)">
+                     </app-button>
+                  </div>
+               </ng-container>
+               <!-- Tampilkan nomor urut -->
+               <ng-container *ngIf="column === 'no'">
+                  {{ element?.no }}
+               </ng-container>
+               <!-- Tampilkan data dalam kolom lain -->
+               <ng-container *ngIf="column !== 'actions' && column !== 'actionsDesc' && column !== 'no'">
+                  {{ element[column] ?? '-' }} <!-- Jika data kosong, tampilkan tanda "-" -->
+               </ng-container>
+            </mat-cell>
+         </ng-container>
 
-      <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: columns"></mat-row>
-   </mat-table>
+         <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+         <mat-row *matRowDef="let row; columns: columns"></mat-row>
+      </mat-table>
+   </div>
 
    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons [length]="data.length" [pageSize]="pageSize"
       (page)="onPageChange($event)">
