@@ -23,6 +23,7 @@
     "apexcharts": "^3.43.0",
     "moment": "^2.29.4",
     "ng-apexcharts": "^1.8.0",
+    "ngx-toastr": "^17.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "uuid": "^9.0.1",
