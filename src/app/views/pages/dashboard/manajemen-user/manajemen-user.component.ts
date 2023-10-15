@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { User, UserService } from 'src/app/core/api/user.service';
+import { HelpersService } from 'src/app/core/services/helpers.service';
 
 @Component({
   selector: 'app-manajemen-user',
@@ -12,7 +14,10 @@ export class ManajemenUserComponent {
   displayColumns: string[] = ['name', 'email', 'address', 'actions']
 
   constructor(
-    private service: UserService
+    private service: UserService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    public helpers: HelpersService
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +32,19 @@ export class ManajemenUserComponent {
     })
   }
 
-  handleButtonClick() {
-    console.log('Button Clicked');
+  handleAdd() {
+    this.router.navigate(['./action'], {
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        m: 'add'
+      },
+    });
+  }
+
+  delete(id: any) {
+    this.service.delete(id).subscribe(res => {
+      this.getData()
+      this.helpers.alertSuccess('Berhasil menghapus data')
+    })
   }
 }

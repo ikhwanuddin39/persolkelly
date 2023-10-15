@@ -34,7 +34,7 @@ export class ActionCategoryComponent implements OnInit {
 
   getData() {
     if (this.mode === 'edit') {
-      this.pageTitle = 'Edit Product';
+      this.pageTitle = 'Edit Category';
       this.service.getById(this.activatedRoute.snapshot.queryParams['id']).subscribe(res => {
         this.form.patchValue(res);
       });
@@ -49,14 +49,14 @@ export class ActionCategoryComponent implements OnInit {
     } else {
       if (this.mode === 'add') {
         this.service.insert(this.form.value).subscribe(res => {
-          this.helpers.alertSuccess('Add product success');
+          this.helpers.alertSuccess('Add Category success');
           this.router.navigate(['../'], {
             relativeTo: this.activatedRoute,
           });
         });
       } else {
         this.service.updateById(this.activatedRoute.snapshot.queryParams['id'], this.form.value).subscribe(res => {
-          this.helpers.alertSuccess('Edit product success');
+          this.helpers.alertSuccess('Edit Category success');
           this.router.navigate(['../'], {
             relativeTo: this.activatedRoute,
           });

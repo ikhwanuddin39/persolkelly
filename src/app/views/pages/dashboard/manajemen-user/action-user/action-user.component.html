@@ -1,1 +1,52 @@
-<p>action-user works!</p>
+<section class="flex justify-center">
+   <div class="bg-white lg:w-6/12 md:w-8/12 w-full rounded-lg p-6 shadow">
+      <!-- title -->
+      <div class="flex items-center justify-between">
+         <h2 class="font-bold text-2xl text-neutral-900">{{pageTitle}}</h2>
+      </div>
+      <!-- form -->
+      <form [formGroup]="form">
+         <!-- name -->
+         <div>
+            <label for="name"
+               class="text-zinc-800 capitalize block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">name</label>
+            <input type="text" formControlName="name"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': helpers.hasError(form, 'name', 'required')}"
+               class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required />
+            <span *ngIf="helpers.hasError(form, 'name', 'required')" class="text-red-600 text-sm">
+               Harus diisi
+            </span>
+         </div>
+         <!-- email -->
+         <div class="mt-4">
+            <label for="email"
+               class="text-zinc-800 capitalize block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">email</label>
+            <input type="email" formControlName="email"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': helpers.hasError(form, 'email', 'required')}"
+               class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required />
+            <span *ngIf="helpers.hasError(form, 'email', 'required')" class="text-red-600 text-sm">
+               Harus diisi
+            </span>
+            <span *ngIf="helpers.hasError(form, 'email', 'email')" class="text-red-600 text-sm">
+               Format tidak sesuai
+            </span>
+         </div>
+         <!-- address -->
+         <div class="mt-4">
+            <label for="address"
+               class="text-zinc-800 capitalize block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">address</label>
+            <textarea formControlName="address"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': helpers.hasError(form, 'address', 'required')}"
+               class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required></textarea>
+            <span *ngIf="helpers.hasError(form, 'address', 'required')" class="text-red-600 text-sm">
+               Harus diisi
+            </span>
+         </div>
+         <!-- button -->
+         <div class="flex mt-4 justify-end gap-4">
+            <app-button [buttonText]="'Cancel'" [buttonType]="''" (buttonClick)="onCancel()"></app-button>
+            <app-button [buttonText]="'Submit'" [buttonType]="'secondary'" (buttonClick)="onSubmit()"></app-button>
+         </div>
+      </form>
+   </div>
+</section>
