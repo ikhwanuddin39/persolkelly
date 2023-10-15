@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { inject } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
-
+import { v4 as uuidv4 } from 'uuid';
 @Injectable({
   providedIn: 'root'
 })
@@ -41,6 +41,7 @@ export class ApiService<T> {
   }
 
   insert(data: T): Observable<T> {
+    data = { ...data, id: uuidv4() };
     return this.http.post<T>(`${this.url}/${this.endpoint}`, data)
       .pipe(
         catchError(error => {
