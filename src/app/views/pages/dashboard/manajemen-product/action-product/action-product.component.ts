@@ -56,6 +56,8 @@ export class ActionProductComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.form.invalid) {
+      this.form.markAllAsTouched()
+
       this.helpers.alertWarning('Please fill all form');
     } else {
       if (this.mode === 'add') {
